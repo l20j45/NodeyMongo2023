@@ -1,6 +1,8 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const app=require('./app');
+const port = 3900
 require('dotenv').config()
 
 
@@ -12,6 +14,10 @@ mongoose
         options)
     .then(() => {
         console.log("conexion exitosa a la base de datos");
+        //crear servidor y escuchar peticiones
+        app.listen(port,()=> {
+            console.log('Servidor corrriendo en localhost ' + port)
+        })
     })
     .catch(() => {
         console.log("Conexion erronea")
