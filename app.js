@@ -1,8 +1,9 @@
 'use strict'
 
 //cargar modulos de node para crear servidor
-const express = require('express');
-const bodyParser = require('body-parser')
+const express = require('express');;
+const bodyParser = require('body-parser');
+const articleRoutes = require('./routes/article');
 
 // ejecutar express (http)
 
@@ -16,10 +17,16 @@ app.use(bodyParser.json());
 
 // activar el cors
 
-// añadir predijos a rutas
+// añadir prefijos a rutas
+
+app.use('/',articleRoutes);
+
 
 //ruta o metodo de prueba
 
+
+
+/*
 app.get('/probando', (req,res) =>{
     return res.status(200).send({
         curso:'generico',
@@ -28,7 +35,11 @@ app.get('/probando', (req,res) =>{
 
     })
 
-})
+})/*/
+
+
+
+
 
 // exportar modulo
 module.exports = app;
